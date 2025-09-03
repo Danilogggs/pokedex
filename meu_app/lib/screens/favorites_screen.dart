@@ -19,15 +19,17 @@ class FavoritesScreen extends StatelessWidget {
           : GridView.builder(
               padding: const EdgeInsets.all(12),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, crossAxisSpacing: 8, mainAxisSpacing: 8, childAspectRatio: .78),
+                crossAxisCount: 4,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
+                childAspectRatio: 2.5,
+              ),
               itemCount: favs.length,
               itemBuilder: (_, i) => PokemonCard(
                 p: favs[i],
                 onTap: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => DetailsScreen(summary: favs[i]),
-                    ),
+                    MaterialPageRoute(builder: (_) => DetailsScreen(summary: favs[i])),
                   );
                 },
               ),

@@ -65,7 +65,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 AspectRatio(
-                  aspectRatio: 1.2,
+                  aspectRatio: 5, // altera tamanho da imagem
                   child: Image.network(
                     d.imageUrl,
                     fit: BoxFit.contain,
