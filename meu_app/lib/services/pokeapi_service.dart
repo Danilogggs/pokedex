@@ -6,7 +6,7 @@ class PokeApiService {
   static const String _base = 'https://pokeapi.co/api/v2';
   static final RegExp _idRx = RegExp(r'/pokemon/(\d+)/?$');
 
-  static List<PokemonSummary>? _allCache; // cache de todos os nomes/ids
+  static List<PokemonSummary>? _allCache; 
 
   PokemonSummary _toSummary(Map<String, dynamic> e) {
     final url = e['url'] as String;
@@ -49,7 +49,6 @@ class PokeApiService {
     );
   }
 
-  // Carrega todos os nomes/ids uma única vez e usa cache.
   Future<List<PokemonSummary>> _getAllSummaries() async {
     if (_allCache != null) return _allCache!;
     final uri = Uri.parse('$_base/pokemon?limit=100000&offset=0');
@@ -63,7 +62,6 @@ class PokeApiService {
     return _allCache!;
   }
 
-  // Busca por "contém" no nome (case-insensitive).
   Future<List<PokemonSummary>> searchByNameContains(String query) async {
     final q = query.trim().toLowerCase();
     if (q.isEmpty) return [];
@@ -71,6 +69,5 @@ class PokeApiService {
     return all.where((p) => p.name.contains(q)).toList();
   }
 
-  // Mantive a busca exata por id/nome, se precisar:
   Future<PokemonDetail> searchExact(String query) => fetchDetail(query.trim().toLowerCase());
 }
