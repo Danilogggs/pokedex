@@ -3,7 +3,6 @@ class PokemonSummary {
   final String name;
   PokemonSummary({required this.id, required this.name});
 
-  // Arte oficial - útil na lista (sem precisar detalhar cada Pokémon)
   String get imageUrl =>
       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$id.png';
 }
