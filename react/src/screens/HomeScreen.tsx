@@ -24,7 +24,7 @@ export default function HomeScreen({ navigation }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
 
-  const pageSize = 20;
+  const pageSize = 12; //alterar pokemons carregados
 
   async function loadPage(initial = false) {
     try {
